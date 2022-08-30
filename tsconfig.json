@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "components": ["components"],
+      "assets": ["assets"],
+      "fonts": ["fonts"],
+      "pages": ["pages"],
+      "store": ["store"],
+      "api": ["api"],
+      "styles": ["styles"],
+      "view": ["view"],
+      "helpers": ["helpers"],
+      "hooks": ["hooks"],
+      "routes": ["routes"]
+    },
+    "jsx": "preserve",
+    "isolatedModules": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es2022",
+    "target": "es6",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports" : true,
+    "esModuleInterop" : true,
+  }
+}
