@@ -7,7 +7,6 @@
     }
 
     const props = defineProps<WatchProps>()
-    console.log(props.isList);
     
     const newName = ref('');
     const humans = ref([]);

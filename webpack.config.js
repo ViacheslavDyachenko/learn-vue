@@ -10,7 +10,7 @@ const srcPath = path.resolve(__dirname, 'src');
 const buildPath = path.resolve(__dirname, 'build');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   target: 'browserslist',
   devtool: isProd ? 'hidden-source-map' : 'eval-source-map',
   devServer: {
@@ -125,6 +125,9 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'vue-loader',
+          options: {
+            esModule: true
+          }
         }
       },
     //  {
@@ -139,19 +142,18 @@ module.exports = {
     ],
   },
   resolve: {
-    //extensions: ['.vue'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-        'vue': '@vue/runtime-dom',
-        //components: path.join(srcPath, 'components'),
-        //assets: path.join(srcPath, 'assets'),
-        //pages: path.join(srcPath, 'pages'),
-        //store: path.join(srcPath, 'store'),
-        //api: path.join(srcPath, 'api'),
-        //styles: path.join(srcPath, 'styles'),
-        //view: path.join(srcPath, 'view'),
-        //helpers: path.join(srcPath, 'helpers'),
-        //hooks: path.join(srcPath, 'hooks'),
-        //routes: path.join(srcPath, 'routes'),
+        components: path.join(srcPath, 'components'),
+        assets: path.join(srcPath, 'assets'),
+        pages: path.join(srcPath, 'pages'),
+        store: path.join(srcPath, 'store'),
+        api: path.join(srcPath, 'api'),
+        styles: path.join(srcPath, 'styles'),
+        view: path.join(srcPath, 'view'),
+        helpers: path.join(srcPath, 'helpers'),
+        hooks: path.join(srcPath, 'hooks'),
+        routes: path.join(srcPath, 'routes'),
     }
   },
 };

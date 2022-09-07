@@ -6,6 +6,8 @@
   "author": "Viacheslav Dyachenko <dyachenko.v@future-group.ru>",
   "license": "MIT",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "redux-vuex": "^3.0.0-beta.2",
     "vue": "^3.2.37"
   },
   "scripts": {
