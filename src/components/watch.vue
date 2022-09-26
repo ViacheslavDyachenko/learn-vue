@@ -4,6 +4,7 @@
     
     type WatchProps = {
         isList: Boolean,
+        onClick: () => void
     }
 
     const props = defineProps<WatchProps>()
@@ -18,6 +19,7 @@
     }
 
     const addNewHuman = () => {
+        if (props.onClick) props.onClick();
         humans.value.push(newName.value);
         newName.value = '';
     }

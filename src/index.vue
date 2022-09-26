@@ -5,6 +5,9 @@ import increment from './components/increment.vue';
 import { ref, onMounted } from 'vue';
 import style from './index.module.scss';
 const isListRef = ref(false);
+const onClick = () => {
+  document.body.style.backgroundColor = '#000';
+}
 </script>
 
 <template>
@@ -14,7 +17,7 @@ const isListRef = ref(false);
       <input name="isList" type="checkbox" v-model="isListRef">
       <label for="isList">структурированный список</label>
     </div>
-    <watch :is-list="isListRef" />
+    <watch :onClick="onClick" :is-list="isListRef" />
     <increment />
   </div>
 </template>
