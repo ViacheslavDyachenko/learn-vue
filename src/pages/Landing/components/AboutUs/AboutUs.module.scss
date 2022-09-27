@@ -1,0 +1,25 @@
+@import 'styles/variables.scss';
+
+.aboutUs {
+    width: 100vw;
+    margin-top: 150px;
+    position: relative;
+    left: -160px;
+}
+.img {
+    
+}
+.textBlock {
+    background-color: $lightGray;
+    width: 35%;
+    max-width: 540px;
+    padding: 60px 85px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translateY(-50%);
+    & > h1 {
+        margin: 0 0 40px;
+    }
+}

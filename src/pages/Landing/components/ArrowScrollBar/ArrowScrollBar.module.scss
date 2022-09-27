@@ -1,0 +1,31 @@
+@import 'styles/variables.scss';
+
+.scrollBarBlock {
+    margin-top: 40px;
+    position: relative;
+}
+.leftArrow {
+    margin-right: 40px;
+    cursor: pointer;
+}
+.rightArrow {
+    cursor: pointer;
+}
+.indicator {
+    height: 2px;
+    width: 170px;
+    background-color: $blue;
+    position: absolute;
+}
+.line {
+    height: 2px;
+    width: 100%;
+    background-color: $gray;
+    transform: translateY(100%);
+}
+.scrollBar {
+    position: absolute;
+    top: 50%;
+    left: 150px;
+    width: 100%;
+}

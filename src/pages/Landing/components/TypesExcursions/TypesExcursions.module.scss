@@ -1,0 +1,22 @@
+@import 'styles/variables.scss';
+
+.type {
+    display: flex;
+    width: 100%;
+}
+.img {
+    margin: -45px 20px 0 0;
+    width: 75px;
+}
+.title {
+    margin-bottom: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: $blue;
+}
+.description {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
