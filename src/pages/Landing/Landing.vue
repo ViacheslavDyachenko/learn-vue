@@ -5,9 +5,13 @@
     import style from './Landing.module.scss';
     import styleTour from './components/PopularTourList/PopularTourList.module.scss';
     import styleScroll from './components/ArrowScrollBar/ArrowScrollBar.module.scss';
+    import styleReviews from './components/ReviewsList/ReviewsList.module.scss';
     import ArrowScrollBar from './components/ArrowScrollBar';
     import AboutUs from './components/AboutUs';
     import TypesExcursionsList from './components/TypesExcursionsList';
+    import Gallery from './components/Gallery';
+    import ReviewsList from './components/ReviewsList';
+    import Feedback from './components/Feedback';
     const tourList = ref([
         {
             img: require('../../assets/img/tour/tour1.png'),
@@ -62,8 +66,34 @@
             price: 618,
             description: 'Приглашаем вас на экскурсию "Обзорная по Большому Сочи": Экскурсия начнется с подъёма на гору Большой Ахун - это  высшая точка (665 метров) на побережьи Сочи. На вершине горы Большой Ахун есть смотровая башня, построенная в 1935-36 годах по проекту архитектора С. И. Воробьева...',
             detailsUrl: '#',
-        },
+        }
     ]);
+    const reviewsList = ref([
+        {
+            img: require('../../assets/img/reviews/1.png'),
+            name: 'Иван Иванов',
+            age: 25,
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        },
+        {
+            img: require('../../assets/img/reviews/2.png'),
+            name: 'Иван Иванов',
+            age: 25,
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        },
+        {
+            img: require('../../assets/img/reviews/1.png'),
+            name: 'Иван Иванов',
+            age: 25,
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        },
+        {
+            img: require('../../assets/img/reviews/1.png'),
+            name: 'Иван Иванов',
+            age: 25,
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        },
+    ])
     const translateVal = ref(0);
     const scrollTick = ref(0);
     const leftBtnIsActive = ref(false);
@@ -85,8 +115,6 @@
                 rightBtnIsActive.value = false;
             }
             for(let item of tourListBlock.children) {
-                (item as any).style.transition = '0.3s';
-                (scrollIndicator as any).style.transition = '0.3s';
                 (item as any).style.transform = `translateX(${translateVal.value - 380}px)`;
                 (scrollIndicator as any).style.marginLeft = `calc(${33 * (scrollTick.value + 1)}% - 157px)`;
             }
@@ -105,13 +133,58 @@
                 leftBtnIsActive.value = false;
             }
             for(let item of tourListBlock.children) {
-                (item as any).style.transition = '0.3s';
-                (scrollIndicator as any).style.transition = '0.3s';
                 (item as any).style.transform = `translateX(${translateVal.value + 380}px)`;
                 (scrollIndicator as any).style.marginLeft = scrollTick.value === 1 ? '0' : `calc(${33 * (scrollTick.value - 1)}% - 157px)`;
             }
             translateVal.value += 380;
             scrollTick.value -= 1;
+        }
+    }
+
+    const translateReviewsVal = ref(0);
+    const scrollReviewsTick = ref(0);
+    const leftBtnReviewsIsActive = ref(false);
+    const rightBtnReviewsIsActive = ref(true);
+    const scrollingReviews = (isLeft: boolean) => {
+        const reviewsListBlock = document.querySelector(`.${styleReviews.list}`);
+        const scrollIndicator = document.querySelectorAll(`.${styleScroll.indicator}`)[1];
+        if (!isLeft) {
+            if (translateReviewsVal.value === -2280) {
+                rightBtnReviewsIsActive.value = false;
+                leftBtnReviewsIsActive.value = true;
+                return;
+            } else {
+                rightBtnReviewsIsActive.value = true;
+                leftBtnReviewsIsActive.value = true;
+            };
+
+            if (translateReviewsVal.value - 760 === -2280) {
+                rightBtnReviewsIsActive.value = false;
+            }
+            for(let item of reviewsListBlock.children) {
+                (item as any).style.transform = `translateX(${translateReviewsVal.value - 760}px)`;
+                (scrollIndicator as any).style.marginLeft = `calc(${33 * (scrollReviewsTick.value + 1)}% - 157px)`;
+            }
+            translateReviewsVal.value -= 760;
+            scrollReviewsTick.value += 1;
+        } else {
+            if (translateReviewsVal.value === 0) {
+                leftBtnReviewsIsActive.value = false;
+                rightBtnReviewsIsActive.value = true;
+                return;
+            } else {
+                leftBtnReviewsIsActive.value = true;
+                rightBtnReviewsIsActive.value = true;
+            };
+            if (translateReviewsVal.value + 760 === 0) {
+                leftBtnReviewsIsActive.value = false;
+            }
+            for(let item of reviewsListBlock.children) {
+                (item as any).style.transform = `translateX(${translateReviewsVal.value + 760}px)`;
+                (scrollIndicator as any).style.marginLeft = scrollReviewsTick.value === 1 ? '0' : `calc(${33 * (scrollReviewsTick.value - 1)}% - 157px)`;
+            }
+            translateReviewsVal.value += 760;
+            scrollReviewsTick.value -= 1;
         }
     }
 </script>
@@ -131,5 +204,16 @@
         <AboutUs />
         <Title text="Виды экскурсий" />
         <TypesExcursionsList />
+        <Title text="Галерея" />
+        <Gallery />
+        <Title text="Отзывы" />
+        <ReviewsList :list="reviewsList" />
+        <ArrowScrollBar
+            :leftBtnIsActive="leftBtnReviewsIsActive"
+            :rightBtnIsActive="rightBtnReviewsIsActive"
+            :scrollOnTheLeft="() => scrollingReviews(true)"
+            :scrollOnTheRight="() => scrollingReviews(false)"
+        />
+        <Feedback />
     </div>
 </template>

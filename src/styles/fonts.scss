@@ -2,7 +2,9 @@
 @font-face {
     font-family: mr_KindlyJasmineG; /* Имя шрифта */
     src: url(assets/fonts/mr_KindlyJasmineG.otf); /* Путь к файлу со шрифтом */
-   }
+}
+@import './variables.scss';
 * {
     font-family: 'Montserrat', sans-serif;
+    color: $text;
 }

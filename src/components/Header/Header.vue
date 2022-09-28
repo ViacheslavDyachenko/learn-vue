@@ -44,9 +44,9 @@
                 <img src="../../assets/img/logo.svg" alt="PERO TRAVEL">
             </router-link>
             <nav>
-                <router-link to="/">Главная</router-link>
-                <router-link to="/excursions">Экскурсии</router-link>
-                <router-link to="/personal-area">Личный кабинет</router-link>
+                <router-link class="nav" to="/">Главная</router-link>
+                <router-link class="nav" to="/excursions">Экскурсии</router-link>
+                <router-link class="nav" to="/personal-area">Личный кабинет</router-link>
             </nav>
         </div>
         <div :class="style.content">
@@ -73,7 +73,7 @@
 </template>
 
 <style>
-    .router-link-active {
+    .nav.router-link-active {
         color: #FFC700!important;
     }
 </style>

@@ -1,0 +1,25 @@
+@import 'styles/variables.scss';
+
+.reviews {
+    display: flex;
+    padding: 40px 45px;
+    background-color: $lightGray;
+    width: 65%;
+    min-width: 740px;
+    border-radius: 10px;
+    transition: 0.3s;
+    & > img {
+        margin-right: 30px;
+    }
+}
+.title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
