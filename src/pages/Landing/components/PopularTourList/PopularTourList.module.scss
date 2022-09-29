@@ -7,3 +7,9 @@
         margin-right: 20px;
     }
 }
+
+@media screen  and (max-width: 650px) {
+    .list {
+        height: 540px;
+    }
+}

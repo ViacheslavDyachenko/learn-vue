@@ -2,3 +2,24 @@
     width: calc(100vw - 160px * 2);
     margin: auto;
 }
+
+@media screen and (max-width: 1630px) {
+    .title {
+        margin-top: 800px;
+    }
+}
+@media screen and (max-width: 1090px) {
+    .content {
+        width: calc(100vw - 80px * 2);
+    }
+}
+@media screen  and (max-width: 910px) {
+    .title {
+        margin-top: 400px;
+    }
+}
+@media screen  and (max-width: 650px) {
+    .content {
+        width: calc(100vw - 25px * 2);
+    }
+}

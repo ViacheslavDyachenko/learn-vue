@@ -52,3 +52,30 @@
         }
     }
 }
+
+@media screen  and (max-width: 650px) {
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        height: 250px;
+        & > a > img {
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .nav {
+        text-align: center;
+        & a {
+            font-size: 12px;
+        }
+    }
+    .socialNetworks {
+        align-items: center;
+        font-size: 12px;
+    }
+    .contacts {
+        align-items: center;
+        font-size: 12px;
+    }
+}

@@ -101,8 +101,9 @@
     const scrollingTour = (isLeft: boolean) => {
         const tourListBlock = document.querySelector(`.${styleTour.list}`);
         const scrollIndicator = document.querySelector(`.${styleScroll.indicator}`);
+        const sizeScroll = document.documentElement.clientWidth > 650 ? 380 : 315;
         if (!isLeft) {
-            if (translateVal.value === -1140) {
+            if (translateVal.value === -sizeScroll * 3) {
                 rightBtnIsActive.value = false;
                 leftBtnIsActive.value = true;
                 return;
@@ -111,14 +112,14 @@
                 leftBtnIsActive.value = true;
             };
 
-            if (translateVal.value - 380 === -1140) {
+            if (translateVal.value - sizeScroll === -sizeScroll * 3) {
                 rightBtnIsActive.value = false;
             }
             for(let item of tourListBlock.children) {
-                (item as any).style.transform = `translateX(${translateVal.value - 380}px)`;
+                (item as any).style.transform = `translateX(${translateVal.value - sizeScroll}px)`;
                 (scrollIndicator as any).style.marginLeft = `calc(${33 * (scrollTick.value + 1)}% - 157px)`;
             }
-            translateVal.value -= 380;
+            translateVal.value -= sizeScroll;
             scrollTick.value += 1;
         } else {
             if (translateVal.value === 0) {
@@ -129,14 +130,14 @@
                 leftBtnIsActive.value = true;
                 rightBtnIsActive.value = true;
             };
-            if (translateVal.value + 380 === 0) {
+            if (translateVal.value + sizeScroll === 0) {
                 leftBtnIsActive.value = false;
             }
             for(let item of tourListBlock.children) {
-                (item as any).style.transform = `translateX(${translateVal.value + 380}px)`;
+                (item as any).style.transform = `translateX(${translateVal.value + sizeScroll}px)`;
                 (scrollIndicator as any).style.marginLeft = scrollTick.value === 1 ? '0' : `calc(${33 * (scrollTick.value - 1)}% - 157px)`;
             }
-            translateVal.value += 380;
+            translateVal.value += sizeScroll;
             scrollTick.value -= 1;
         }
     }
@@ -148,8 +149,9 @@
     const scrollingReviews = (isLeft: boolean) => {
         const reviewsListBlock = document.querySelector(`.${styleReviews.list}`);
         const scrollIndicator = document.querySelectorAll(`.${styleScroll.indicator}`)[1];
+        const sizeScroll = document.documentElement.clientWidth > 650 ? 760 : 300;
         if (!isLeft) {
-            if (translateReviewsVal.value === -2280) {
+            if (translateReviewsVal.value === -sizeScroll * 3) {
                 rightBtnReviewsIsActive.value = false;
                 leftBtnReviewsIsActive.value = true;
                 return;
@@ -158,14 +160,14 @@
                 leftBtnReviewsIsActive.value = true;
             };
 
-            if (translateReviewsVal.value - 760 === -2280) {
+            if (translateReviewsVal.value - sizeScroll === -sizeScroll * 3) {
                 rightBtnReviewsIsActive.value = false;
             }
             for(let item of reviewsListBlock.children) {
-                (item as any).style.transform = `translateX(${translateReviewsVal.value - 760}px)`;
+                (item as any).style.transform = `translateX(${translateReviewsVal.value - sizeScroll}px)`;
                 (scrollIndicator as any).style.marginLeft = `calc(${33 * (scrollReviewsTick.value + 1)}% - 157px)`;
             }
-            translateReviewsVal.value -= 760;
+            translateReviewsVal.value -= sizeScroll;
             scrollReviewsTick.value += 1;
         } else {
             if (translateReviewsVal.value === 0) {
@@ -176,14 +178,14 @@
                 leftBtnReviewsIsActive.value = true;
                 rightBtnReviewsIsActive.value = true;
             };
-            if (translateReviewsVal.value + 760 === 0) {
+            if (translateReviewsVal.value + sizeScroll === 0) {
                 leftBtnReviewsIsActive.value = false;
             }
             for(let item of reviewsListBlock.children) {
-                (item as any).style.transform = `translateX(${translateReviewsVal.value + 760}px)`;
+                (item as any).style.transform = `translateX(${translateReviewsVal.value + sizeScroll}px)`;
                 (scrollIndicator as any).style.marginLeft = scrollReviewsTick.value === 1 ? '0' : `calc(${33 * (scrollReviewsTick.value - 1)}% - 157px)`;
             }
-            translateReviewsVal.value += 760;
+            translateReviewsVal.value += sizeScroll;
             scrollReviewsTick.value -= 1;
         }
     }
@@ -206,7 +208,7 @@
         <TypesExcursionsList />
         <Title text="Галерея" />
         <Gallery />
-        <Title text="Отзывы" />
+        <Title :class="style.title" text="Отзывы" />
         <ReviewsList :list="reviewsList" />
         <ArrowScrollBar
             :leftBtnIsActive="leftBtnReviewsIsActive"
